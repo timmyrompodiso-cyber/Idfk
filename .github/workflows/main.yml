@@ -2,12 +2,12 @@ name: Build APK
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
+        uses: Peter-Sane/buildozer-action@v1
         id: buildozer
         with:
           command: buildozer android debug
@@ -16,5 +16,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Space-Game-APK
+          name: Spaceship-Game-APK
           path: bin/*.apk
